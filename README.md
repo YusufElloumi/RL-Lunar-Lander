@@ -28,15 +28,17 @@ Training reward plot:
 
 ![Training reward curve](plots/training_curve.png)
 
-Final evaluation over 10 episodes:
+Evaluation of the saved checkpoint over 10 episodes:
 
 | Metric | Result |
 |---|---|
-| Mean reward | _Add result from `src/evaluate.py`_ |
-| Standard deviation | _Add result from `src/evaluate.py`_ |
+| Mean reward | 169.32 |
+| Standard deviation | 158.59 |
 
-The environment's solved benchmark is an average reward of 200 or more over
-100 episodes.
+The training plot's rolling average approaches 200 near the end of training.
+However, the 10-episode evaluation mean is below 200 and is too small a sample
+to confirm the solved benchmark. Confirming that requires evaluating the
+policy over 100 episodes and checking for a mean reward of at least 200.
 
 ## How it works
 
