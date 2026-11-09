@@ -31,13 +31,31 @@ DQN applies semi-gradient TD learning when the action-value function is represen
 
 | Hyperparameter | Value |
 |---|---|
+| Discount factor (gamma) | 0.99 |
+| Learning rate | 0.0005 |
+| Batch size | 64 |
+| Replay buffer capacity | 100000 transitions |
+| Epsilon start | 1.0 |
+| Epsilon minimum | 0.01 |
+| Epsilon decay per episode | 0.995 |
+| Target network update interval | Every 1000 learning steps |
 
 # Progress log
 
+- 2026-11-08: Re-rendered the successful trained-agent GIF at the environment's native 600x400 resolution.
+- 2026-11-08: Re-recorded the random baseline and 50-episode intermediate-policy GIFs with full-size frames captured throughout each episode.
+- 2026-11-08: Added random-baseline, 30-episode intermediate-training, and successful trained-agent GIF demos to `videos/` and linked them in the README.
+- 2026-11-08: Completed the README with setup/run instructions, project structure, hyperparameters, and placeholders for demo clips and evaluation results.
+- 2026-11-08: Added greedy evaluation and video recording that continues until a successful landing.
+- 2026-11-08: Added the LunarLander DQN training loop, best-model checkpointing, and reward-curve plotting.
+- 2026-11-08: Added and smoke-tested epsilon-greedy action selection and the DQN learning update.
+- 2026-11-08: Added and smoke-tested the replay buffer with random minibatch sampling.
 - 2026-11-08: Added and smoke-tested the two-hidden-layer PyTorch Q-network.
 - 2026-11-08: Added a three-episode random-action baseline with human rendering.
 - 2026-11-08: Created the initial project layout and project guide.
 
 # Known issues and lessons learned
 
-- None recorded yet.
+- Gymnasium's `RecordVideo` requires MoviePy, which is not currently listed in `requirements.txt`; install the Gymnasium `other` extra to record MP4 clips.
+- The intermediate-training demo is from a separate 50-episode run; it is illustrative and not a checkpoint from the main training run.
+- Final evaluation results still need to be refreshed after the desired training run.
